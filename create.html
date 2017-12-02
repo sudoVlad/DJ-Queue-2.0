@@ -32,13 +32,25 @@
   
   <div class="container row" style="text-align:center">
 <h1>Create Event</h1>
-    Name: <input type="text" name="FirstName" value="Guest"><br>
-    Public<input type="radio" name="privacy" checked><br>
-    Private<input type="radio" name="privacy"><br>
+   Event Name <input type="text" name="name"><br>
+Private <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
+Public <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" checked><br>
+    <div id="ifYes" style="display:none">
+      Password <input type='text' id='yes' name='yes'><br>
+    </div>
+    
     <p id="demo"></p>
     <input type="submit" onclick="myFunction()" value="Submit">
 
   </div>
+  <script>
+ function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('ifYes').style.display = 'block';
+    }
+    else document.getElementById('ifYes').style.display = 'none';
+}
+  </script>
 <script>
 function myFunction() {
     document.getElementById("demo").innerHTML = "Event ID: " + Math.floor( Math.random() * 10000) ;
