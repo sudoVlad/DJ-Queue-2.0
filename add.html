@@ -37,7 +37,11 @@
     <p id="demo"></p>
     <input type="submit" onclick="myFunction()" value="Submit">
   </div>
-  
+  <script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Sent";
+}
+</script>
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
 </html>
