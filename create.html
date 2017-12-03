@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+\<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>DJ Queue 2.0</title>
@@ -35,18 +35,19 @@
     <h1>Create Event</h1>
     
     <form action="create_event.php" method="post">
-      Event Name <input type="text" name="e_name" required>
-      <br>
+      Event Name <input type="text" name="e_name" required><br>
+      
       Private <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" id="yesCheck">
-      Public <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" checked>
-      <br>
+      
+      Public <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" checked><br>
+
        <div id="ifYes" style="display:none">
         <div id="ifYes" class="alert alert-success"><p>Your event password is null. Change below</p></div>
         Password <input type='text' id='yes' name='password'>
-      </div>
-      <br>
+      </div><br>
+      
       DJ Password <input type="text" name="dj_password" required><br>
-      <br>
+
       <!--  <p id="demo"></p> -->
       <input type="submit" onclick="myFunction()" value="Submit">
     </form>
