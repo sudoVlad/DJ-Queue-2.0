@@ -8,6 +8,12 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+  
+  <style>
+body{
+  height:100%;
+}
+</style>
 <body>
 
 <nav class="navbar navbar-inverse">
@@ -30,12 +36,21 @@
   </div>
 </nav>
   
-  <div class="container row" style="text-align:center">
-<h1>User Mode</h1>
-    <div class="container row" style="text-align:center">
-  <a href="add.html"<button type="button" class="btn-lg btn-primary active"></button>Add Song</a>
-  <a href="view.html"<button type="button" class="btn-lg btn-primary active"></button>View Playlist</a>
-</div>
+  <div class="container row" >
+  </div>
+      <h1 style="text-align:center">User Mode</h1>
+
+    <row style="text-align:center">
+      <div style="color:black" class="col-lg-6 col-sm-12">
+        <h3>Request a Song</h3>
+        Song Name  <input type="text" name="name"><br>
+        Artists Name <input type="text" name="name"><br>   
+        <input type="submit" onclick="myFunction()" value="Submit">
+      </div>
+      <div style="color:white; background-color: black" class="col-lg-6 col-sm-12">
+       <h3>View Playlist</h3>
+      </div>
+    </row>
   
 </body>
 <script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
