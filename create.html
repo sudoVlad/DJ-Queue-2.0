@@ -32,24 +32,19 @@
 </nav>
   
   <div class="container row" style="text-align:center">
-<h1>Create Event</h1>
+    <h1>Create Event</h1>
     <form action="add_event.php">
-     Event Name <input type="text" name="event_name" required><br>
-     Private <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
-     Public <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" checked><br>
-     
+      Event Name <input type="text" name="event_name" required><br>
+      Private <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
+      Public <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" checked><br>
       <div id="ifYes" style="display:none">
-        <div id="ifYes" class="alert alert-success"><p>Default password is null. Change below</p></div>
-      Password <input type='text' id='yes' name='yes'><br>
-     </div>
-     
-      <h3>DJ Type</h3>
-     One<input type="radio" onclick="javascript:yesnoCheck();" name="dj">
-     Many<input type="radio" onclick="javascript:yesnoCheck();" name="dj" checked><br>
+        <div id="ifYes" class="alert alert-success"><p>Default event password is null. Change below</p></div>
+        Password <input type='text' id='yes' name='yes'><br>
+      </div>
+      DJ Password <input type="text" name="dj_pword" required><br>
      <p id="demo"></p>
      <input type="submit" onclick="myFunction()" value="Submit">
     </form>
-
   </div>
   <script>
  function yesnoCheck() {
@@ -65,7 +60,5 @@ function myFunction() {
 }
 </script>
 
-  
 </body>
-<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
 </html>
