@@ -23,7 +23,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="learn.html">Learn More</a></li>
+        <li><a href="create.html">Create Event</a></li>
+        <li><a href="join.html">Join Event</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -32,18 +33,19 @@
   
   <div class="container row" style="text-align:center">
 <h1>Create Event</h1>
-   Event Name <input type="text" name="name"><br>
-Private <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
-Public <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" checked><br>
-    <div id="ifYes" style="display:none">
-      Password <input type='text' id='yes' name='yes'><br>
-    </div>
-    <h3>DJ Type</h3>
-    One<input type="radio" onclick="javascript:yesnoCheck();" name="dj">
-    Many<input type="radio" onclick="javascript:yesnoCheck();" name="dj" checked><br>
-    
-    <p id="demo"></p>
-    <input type="submit" onclick="myFunction()" value="Submit">
+    <form action="/add_event.php">
+     Event Name <input type="text" name="event_name" required><br>
+     Private <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
+     Public <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" checked><br>
+     <div id="ifYes" style="display:none">
+      Password <input type='text' id='yes' name='yes' required><br>
+     </div>
+     <h3>DJ Type</h3>
+     One<input type="radio" onclick="javascript:yesnoCheck();" name="dj">
+     Many<input type="radio" onclick="javascript:yesnoCheck();" name="dj" checked><br>
+     <p id="demo"></p>
+     <input type="submit" onclick="myFunction()" value="Submit">
+    </form>
 
   </div>
   <script>
