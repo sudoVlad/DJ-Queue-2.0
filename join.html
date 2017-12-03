@@ -23,7 +23,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="learn.html">Learn More</a></li>
+        <li><a href="create.html">Create Event</a></li>
+        <li><a href="join.html">Join Event</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -31,14 +32,31 @@
 </nav>
   
   <div class="container row" style="text-align:center">
-<h1>Join Event</h1>
-    <div class="container row" style="text-align:center">
- Event ID <input type="text" name="name"><br>
-DJ <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
-User <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" checked><br>
-       <input type="submit" onclick="myFunction()" value="Submit">
-    </div>
-  
+    <h1>Join Event</h1>
+    <form action="join_event.php">
+      Event ID <input type="text" name="event_name" required><br>
+      DJ<input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
+      User <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" checked><br>
+      <div id="ifYes" style="display:none">
+        DJ Password <input type='text' id='yes' name='yes'><br>
+      </div>
+     <p id="demo"></p>
+     <input type="submit" onclick="myFunction()" value="Submit">
+    </form>
+  </div>
+  <script>
+ function yesnoCheck() {
+    if (document.getElementById('yesCheck').checked) {
+        document.getElementById('ifYes').style.display = 'block';
+    }
+    else document.getElementById('ifYes').style.display = 'none';
+}
+  </script>
+<script>
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Event ID: " + Math.floor( Math.random() * 10000) ;
+}
+</script>
+
 </body>
-<script src="https://www.gstatic.com/firebasejs/4.7.0/firebase.js"></script>
-  </html>
+</html>
