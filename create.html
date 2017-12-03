@@ -37,10 +37,13 @@
      Event Name <input type="text" name="event_name" required><br>
      Private <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" id="yesCheck">
      Public <input type="radio" onclick="javascript:yesnoCheck();" name="yesno" checked><br>
-     <div id="ifYes" style="display:none">
+     
+      <div id="ifYes" style="display:none">
+        <div id="ifYes" class="alert alert-success"><p>Default password is null. Change below</p></div>
       Password <input type='text' id='yes' name='yes'><br>
      </div>
-     <h3>DJ Type</h3>
+     
+      <h3>DJ Type</h3>
      One<input type="radio" onclick="javascript:yesnoCheck();" name="dj">
      Many<input type="radio" onclick="javascript:yesnoCheck();" name="dj" checked><br>
      <p id="demo"></p>
