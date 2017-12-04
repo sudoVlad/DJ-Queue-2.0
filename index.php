@@ -1,3 +1,6 @@
+<?php
+	session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +21,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html">DJ Queue 2.0</a>
+      <a class="navbar-brand" href="index.php">DJ Queue 2.0 <?php echo " Event ID: " . $_SESSION["EVENT_ID"];  ?></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -26,6 +29,7 @@
         <li><a href="create.html">Create Event</a></li>
         <li><a href="join.html">Join Event</a></li>
         <li><a href="contact.html">Contact</a></li>
+      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>
@@ -33,9 +37,17 @@
   
   <div class="container row" style="text-align:center">
 <h1>DJ Queue 2.0</h1>
-    <div class="container row" style="text-align:center">
+  <div class="container row" style="text-align:center">
   <a href="create.html"<button type="button" class="btn-lg btn-primary active"></button>Create Event</a>
   <a href="join.html"<button type="button" class="btn-lg btn-primary active"></button>Join Event</a>
+  <h3>
+  <?php
+	// Echo session variables that were set on previous page
+	echo "Event: " . $_SESSION["EVENT_NAME"] . "<br>";
+	
+   ?>
+
+ </h3>
 </div>
   
 </body>

@@ -31,14 +31,16 @@
 </nav>
   <div id="main" class="container row" style="text-align:center">
     <h1>Join Event</h1>
+
     <form action="join_event.php" method="post">
-      	Event ID<input id="name" placeholder="Event ID" type="text" name="event_id" required><br>
-      	Password <input placeholder="*******" type="password" name="event_password" required><br>
-     	<p id="demo"></p>
-       	<div class="alert alert-info"><p>Password is null for public events</p></div>
-     	<input type="submit" onclick="myFunction()" value="Join">
-	<span></span>
+      	Event ID<input name="event_id" type="number" maxlength="5" minlength="5" value="" required>
+
+      	Password <input name="password" placeholder="*******" type="password" value="" required>
+
+	<input type="submit" onclick="myFunction()" value="Join">       	
+	<div class="alert alert-info"><p>Password is null for public events</p></div>
     </form>
+
   </div>
   <script>
  function yesnoCheck() {

@@ -47,8 +47,9 @@ $success 	= $conn->query($query);
  
 if (!$success) { die("Couldn't enter data: ".$conn->error);}
  
-echo "Event Name: $event_name<br>";
 echo "Event ID: $event_id<br>";
+echo "Event Name: $event_name<br>";
+echo "DJ Password: $dj_password<br>";
 echo "Privacy: $privacy<br>";
 
 $conn->close(); 

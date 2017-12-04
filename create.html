@@ -32,15 +32,22 @@
   <div class="container row" style="text-align:center">
     <h1>Create Event</h1>
     <form action="create_event.php" method="post">
-      Event ID <input type="text" name="event_id" required> <p id="demo"></p>
+      Event ID <input type="number" name="event_id" maxlength="5" minlength="5" value="" required> 
+	<p id="demo"></p>
         <script> document.getElementById("demo").innerHTML = " Potential Event ID: " + Math.floor( Math.random() * 100000); </script>
-      Event Name <input type="text" name="event_name" required><br>
-      DJ Password <input type="text" name="dj_password" required><br>
-      Public <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" value="off">
-      Private <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" value="on" id="yesCheck" checked><br>
-       <div id="ifYes" style="display:none">
-        <div id="ifYes" class="alert alert-success"><p>Your event password is null. Change below</p></div>
-        Password <input type='text' id='yes' name='password'>
+      
+      Event Name <input type="text" name="event_name" value="" required><br>
+      
+      DJ Password <input type="password" name="dj_password" value="" required><br>
+      
+      Public <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" value="off" checked>
+      
+      Private <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" id="yesCheck"><br>
+      <div id="ifYes" style="display:none">
+        <div id="ifYes" class="alert alert-success"><p>Your event password is null. Change below</p>
+      </div>
+      
+      Password <input type="password" name="password" value="null" id="yes">
       </div>
       <p id="demo"></p>
       <input type="submit" onclick="myFunction()" value="Submit">
