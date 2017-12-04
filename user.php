@@ -42,21 +42,14 @@ body{
       <div class="col-lg-6 col-sm-12">
        <h3>Add to Playlist</h3>
          <form action="add_song.php" method="post">
-<<<<<<< HEAD:user.php
-          Song Name <input type="text" name="song_name" required> <p id="demo"></p>
-          Artist <input type="text" name="artist" required><br>
-=======
-          Song Name <input type="text" name="event_id" required> <p id="demo"></p>
-          Artist <input type="text" name="event_name" required><br>
->>>>>>> b09acdf19ed3177d7d2d07e664f03e9725aa12dc:user.html
-          <p id="demo"></p>
+          Song Name <input type="text" name="song_name" required>
+          Artist <input type="text" name="artist" required>
           <input type="submit" value="Sent">
         </form>
       </div>
       
       <div style="color:white; background-color: black" class="col-lg-6 col-sm-12">
        <h3>View Playlist</h3>
-<<<<<<< HEAD:user.php
 	<?php
 	require 'connection.php';
 	$conn	= Connect();
@@ -65,36 +58,18 @@ body{
 	$result = $conn->query($sql);
 
 	//output
-	if ($result->num_rows > 0)
-	{
-    		while($row = $result->fetch_assoc())
-		{
+	if ($result->num_rows > 0){
+    		while($row = $result->fetch_assoc()){
 			echo $row["song_name"] . " " . $row["artist"];
 			echo "<br>";
 		}	
 	}
-	else
-	{
-		echo "0 results";
-	}
+	else{ echo "0 results"; }
 
 	//close db connection
 	$conn->close();
 	?>
        <div id="result"></div>
-=======
-       <div id="result"></div>
-      <script>
-      if(typeof(EventSource) !== "undefined") {
-          var source = new EventSource("demo_sse.php");
-          source.onmessage = function(event) {
-              document.getElementById("result").innerHTML += event.data + "<br>";
-          };
-      } else {
-          document.getElementById("result").innerHTML = "Sorry, your browser does not support server-sent events...";
-      }
-      </script>
->>>>>>> b09acdf19ed3177d7d2d07e664f03e9725aa12dc:user.html
       </div>
     </row>
 </body>
