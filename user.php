@@ -29,8 +29,9 @@ body{
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="learn.html">Learn More</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="create.html">Create Event</a></li>
+        <li><a href="join.html">Join Event</a></li>
+	<li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </div>
