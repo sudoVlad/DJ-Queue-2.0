@@ -35,37 +35,26 @@
     <h1>Create Event</h1>
     
     <form action="create_event.php" method="post">
-      Event Name <input type="text" name="e_name" required><br>
-      
+      Potential Event ID <input type="text" name="event_id" required> <p id="demo"></p>
+        <script> document.getElementById("demo").innerHTML = "Event ID: " + Math.floor( Math.random() * 100000); </script>
+      Event Name <input type="text" name="event_name" required><br>
+      DJ Password <input type="text" name="dj_password" required><br>
       Private <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" id="yesCheck">
-      
       Public <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" checked><br>
 
        <div id="ifYes" style="display:none">
         <div id="ifYes" class="alert alert-success"><p>Your event password is null. Change below</p></div>
         Password <input type='text' id='yes' name='password'>
-      </div><br>
+      </div>
       
-      DJ Password <input type="text" name="dj_password" required><br>
-
-      <!--  <p id="demo"></p> -->
+      <p id="demo"></p>
       <input type="submit" onclick="myFunction()" value="Submit">
     </form>
-    
   </div>
   <script>
  function yesnoCheck() {
-    if (document.getElementById('yesCheck').checked) {
-        document.getElementById('ifYes').style.display = 'block';
-    }
-    else document.getElementById('ifYes').style.display = 'none';
-}
+    if (document.getElementById('yesCheck').checked) {document.getElementById('ifYes').style.display = 'block';}
+    else document.getElementById('ifYes').style.display = 'none';}
   </script>
-<!-- <script>
-function myFunction() {
-    document.getElementById("demo").innerHTML = "Event ID: " + Math.floor( Math.random() * 10000) ;
-}
-</script> -->
-
 </body>
 </html>
