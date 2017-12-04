@@ -41,12 +41,16 @@ body{
       <h1 style="text-align:center">User Mode</h1>
 
     <row style="text-align:center">
-      <div style="color:black" class="col-lg-6 col-sm-12">
-        <h3>Request a Song</h3>
-        Song Name  <input type="text" name="name"><br>
-        Artists Name <input type="text" name="name"><br>   
-        <input type="submit" onclick="myFunction()" value="Submit">
-      </div>
+      
+      
+<form action="add_song.php" method="post">
+      Song Name <input type="text" name="event_id" required> <p id="demo"></p>
+      Artist <input type="text" name="event_name" required><br>
+      <p id="demo"></p>
+      <input type="submit" value="Sent">
+    </form>
+     
+      
       <div style="color:white; background-color: black" class="col-lg-6 col-sm-12">
        <h3>View Playlist</h3>
       </div>
