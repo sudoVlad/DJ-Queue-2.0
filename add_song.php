@@ -41,18 +41,21 @@
 
 	//variable set
 	$song_name    	= $conn->real_escape_string($_POST['song_name']);
+	$_SESSION["SONG_NAME"] = $song_name;
 	$artist   	= $conn->real_escape_string($_POST['artist']);
-	$playlist_id	= $_SESSION["EVENT_ID"];
-	
-	$query   	= "INSERT into playlist (song_name,artist,playlist_id) VALUES('" . $song_name . "','" . $artist . "','" . $playlist_id . "')";
+	$event_id	= $_SESSION["EVENT_ID"];
+	$song_id	= rand(10000,99999);
+	$_SESSION["SONG_ID"] = $song_id;	
+
+	//database input
+	$query   	= "INSERT into playlist (song_name,artist,event_id,song_id) VALUES('" . $song_name . "','" . $artist . "','" . $event_id . "','" . $song_id . "')";
+	//$query   	= "INSERT into event (event_name,event_id,dj_password,password,privacy) VALUES('" . $event_name . "','" . $event_id . "','" . $dj_password . "','" . $password . "','" . $privacy . "')";
 	$success 	= $conn->query($query);
 	 
 	//database check
 	if (!$success) { die("Couldn't enter data: ".$conn->error);}
 
-	//output 
-	echo "Song Name: $song_name<br>";
-	echo "Artist: $artist<br>";
+	echo "Song ID: " . $song_id;	
 
 	//close the database
 	$conn->close(); 

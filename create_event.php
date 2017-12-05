@@ -48,6 +48,7 @@
 	$password 	= $conn->real_escape_string($_POST['password']);
 	$privacy    	= $conn->real_escape_string($_POST['privacy']);
 	$query   	= "INSERT into event (event_name,event_id,dj_password,password,privacy) VALUES('" . $event_name . "','" . $event_id . "','" . $dj_password . "','" . $password . "','" . $privacy . "')";
+	//$query   	= "INSERT into playlist (song_id,event_id,song_name,artist) VALUES('" . $song_id . "','" . $event_id . "','" . $song_name . "','" . $artist . "')";
 	$success 	= $conn->query($query);
  
 	//error check

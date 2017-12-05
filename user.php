@@ -8,15 +8,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-  
-  <style>
-body{
-  height:100%;
-}
-</style>
-<body>
+</head>  
+<style> body{ height:100%;} </style>
 
+<body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -25,7 +20,7 @@ body{
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html">Home Portal</a>
+      <a class="navbar-brand" href="home.php">Home Portal</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -38,7 +33,7 @@ body{
     </div>
   </div>
 </nav>
-      <h1 style="text-align:center">User Mode</h1>
+   <h1 style="text-align:center">User Mode</h1>
     <row style="text-align:center">
       <div class="col-lg-6 col-sm-12">
        <h3>Add to Playlist</h3>
@@ -52,11 +47,17 @@ body{
       </div>      
       <div style="color:white; background-color: black" class="col-lg-6 col-sm-12">
        <h3>View Playlist</h3>
-	<?php
+<?php
+	//connect to database
 	require 'connection.php';
 	$conn	= Connect();
 	if($conn->connect_error){ die("Connection Failed: " . $conn->connect_error);}
-	$sql = "SELECT song_name, artist FROM playlist";
+		
+	//variable declaration
+	$event_id = $_SESSION["EVENT_ID"];
+	
+	//query the database
+	$sql = "SELECT song_name,artist FROM `playlist` WHERE event_id = '" . $event_id . "'";
 	$result = $conn->query($sql);
 
 	//output
@@ -70,7 +71,7 @@ body{
 
 	//close db connection
 	$conn->close();
-	?>
+?>
        <div id="result"></div>
       </div>
     </row>
