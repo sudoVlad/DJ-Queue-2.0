@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <title>DJ Queue 2.0</title>
-  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -25,30 +24,35 @@
         <li><a href="create.html">Create Event</a></li>
         <li><a href="join.html">Join Event</a></li>
         <li><a href="contact.html">Contact</a></li>
-      </ul>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
+     </ul>
     </div>
   </div>
 </nav>
   <div class="container row" style="text-align:center">
     <h1>Create Event</h1>
     <form action="create_event.php" method="post">
-      Event ID <input type="number" name="event_id" maxlength="5" minlength="5" value="" required> 
+      Event ID <input type="number" name="event_id" max="5" min="4"  value="" required> 
 	<p id="demo"></p>
-        <script> document.getElementById("demo").innerHTML = " Potential Event ID: " + Math.floor( Math.random() * 100000); </script>
+        <script> document.getElementById("demo").innerHTML = "Suggested Event ID: " + Math.floor( Math.random() * 100000); </script>
       
       Event Name <input type="text" name="event_name" value="" required><br>
       
       DJ Password <input type="password" name="dj_password" value="" required><br>
       
-      Public <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" value="off" checked>
+      Public <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" value="on" checked>
       
       Private <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" id="yesCheck"><br>
       <div id="ifYes" style="display:none">
-        <div id="ifYes" class="alert alert-success"><p>Your event password is null. Change below</p>
+        <div id="ifYes" class="alert alert-success">
+		<p>Your event password is null. Change below</p>
+      	</div>
+      	Password <input type="password" name="password" value="null" id="yes">
       </div>
-      
-      Password <input type="password" name="password" value="null" id="yes">
-      </div>
+	<div class="alert alert-info">
+		<strong>Info!</strong>
+		Duplicate Event IDs will not be accepted.
+	</div>
       <p id="demo"></p>
       <input type="submit" onclick="myFunction()" value="Submit">
     </form>

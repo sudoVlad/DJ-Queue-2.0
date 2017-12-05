@@ -1,13 +1,12 @@
-<?php
-	session_start();
-?>
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title>DJ Queue 2.0</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <meta charset="utf-8" http-equiv="refresh" content="0,URL=index.php"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -21,7 +20,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.php">DJ Queue 2.0 <?php echo " Event ID: " . $_SESSION["EVENT_ID"];  ?></a>
+      <a class="navbar-brand" href="index.php">DJ Queue 2.0</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
@@ -37,17 +36,14 @@
   
   <div class="container row" style="text-align:center">
 <h1>DJ Queue 2.0</h1>
-  <div class="container row" style="text-align:center">
-  <a href="create.html"<button type="button" class="btn-lg btn-primary active"></button>Create Event</a>
-  <a href="join.html"<button type="button" class="btn-lg btn-primary active"></button>Join Event</a>
-  <h3>
-  <?php
-	// Echo session variables that were set on previous page
-	echo "Event: " . $_SESSION["EVENT_NAME"] . "<br>";
-	
-   ?>
 
- </h3>
+<?php
+	// remove all session variables
+	session_unset();
+
+	// destroy the session
+	session_destroy();
+?>
 </div>
   
 </body>

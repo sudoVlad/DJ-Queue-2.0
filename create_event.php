@@ -26,6 +26,7 @@
         <li><a href="create.html">Create Event</a></li>
         <li><a href="join.html">Join Event</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>
@@ -45,7 +46,10 @@ $privacy    	= $conn->real_escape_string($_POST['privacy']);
 $query   	= "INSERT into event (event_name,event_id,dj_password,password,privacy) VALUES('" . $event_name . "','" . $event_id . "','" . $dj_password . "','" . $password . "','" . $privacy . "')";
 $success 	= $conn->query($query);
  
-if (!$success) { die("Couldn't enter data: ".$conn->error);}
+if (!$success){ 
+   	header( 'Location: create.html' );
+	die("Try Again: ".$conn->error);
+}
  
 echo "Event ID: $event_id<br>";
 echo "Event Name: $event_name<br>";

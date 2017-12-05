@@ -26,6 +26,7 @@
         <li><a href="create.html">Create Event</a></li>
         <li><a href="join.html">Join Event</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>

@@ -1,6 +1,6 @@
 <?php
-// Start the session
-session_start();
+	// Start the session
+	session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,6 +60,7 @@ session_start();
 		//set session variables
 		$_SESSION["EVENT_ID"] = $event_id;
 		$_SESSION["EVENT_NAME"] = $row["event_name"];
+		$_SESSION["ON"] = true;
 	}else{
 		//invalid output
 		echo "<h1>Incorrect Credentials</h1>";
