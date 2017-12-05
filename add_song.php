@@ -42,7 +42,9 @@
 	//variable set
 	$song_name    	= $conn->real_escape_string($_POST['song_name']);
 	$artist   	= $conn->real_escape_string($_POST['artist']);
-	$query   	= "INSERT into playlist (song_name,artist) VALUES('" . $song_name . "','" . $artist . "')";
+	$playlist_id	= $_SESSION["EVENT_ID"];
+	
+	$query   	= "INSERT into playlist (song_name,artist,playlist_id) VALUES('" . $song_name . "','" . $artist . "','" . $playlist_id . "')";
 	$success 	= $conn->query($query);
 	 
 	//database check

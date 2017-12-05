@@ -1,7 +1,8 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>DJ Queue 2.0</title>
+  <title> <?php echo "Event Name: " . $_SESSION["EVENT_NAME"]; ?> </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,30 +25,31 @@ body{
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html">DJ Queue 2.0</a>
+      <a class="navbar-brand" href="index.html">Home Portal</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="create.html">Create Event</a></li>
-        <li><a href="join.html">Join Event</a></li>
+        <li><a href="user.php">User Mode</a></li>
+        <li><a href="dj.php">DJ Mode</a></li>
 	<li><a href="contact.html">Contact</a></li>
+      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
-
       <h1 style="text-align:center">User Mode</h1>
     <row style="text-align:center">
       <div class="col-lg-6 col-sm-12">
        <h3>Add to Playlist</h3>
+
          <form action="add_song.php" method="post">
-          Song Name <input type="text" name="song_name" required>
-          Artist <input type="text" name="artist" required>
-          <input type="submit" value="Sent">
+         	Song Name <input type="text" name="song_name" required>
+         	Artist <input type="text" name="artist" required>
+         	<input type="submit" value="Send">
         </form>
-      </div>
-      
+
+      </div>      
       <div style="color:white; background-color: black" class="col-lg-6 col-sm-12">
        <h3>View Playlist</h3>
 	<?php

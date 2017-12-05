@@ -36,21 +36,16 @@
   <div class="container row" style="text-align:center">
   <h1>Home Portal</h1>
   <div class="container row" style="text-align:center">
-  <?php
-		echo '
-		<div>
-                        <a href="user.php"<button type="button" class="btn-lg btn-primary active"></button>User Mode</a>
-                        <a href="dj.php"<button type="button" class="btn-lg btn-primary active"></button>DJ Mode</a>
-                </div><br>';
-		
+   <div>
+   	<a href="user.php"<button type="button" class="btn-lg btn-primary active"></button>User Mode</a>
+        <a href="dj.php"<button type="button" class="btn-lg btn-primary active"></button>DJ Mode</a>
+   </div><br>
+	<?php	
 		//output
-                echo "Event Name: " . $_SESSION["EVENT_NAME"];
-                echo "<br>";
-                echo "Event ID: " . $_SESSION["EVENT_ID"];
-
-
-  ?>	
- </div>
-  
+       		echo "Event Name: " . $_SESSION["EVENT_NAME"];
+        	echo "<br>";
+        	echo "Event ID: " . $_SESSION["EVENT_ID"];
+	 ?>	
+     </div>
  </body>
 </html>

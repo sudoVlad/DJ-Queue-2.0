@@ -4,8 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title> <?php echo "Event Name: " . $event_id; ?> </title>
-  <meta charset="utf-8" http-equiv="refresh" content="0,URL=home.php"/>
+  <title> <?php echo "Event Name: " . $_SESSION["EVENT_ID"]; ?> </title>
+  <meta charset="utf-8"/> <!-- http-equiv="refresh" content="0,URL=home.php"/> -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -52,20 +52,15 @@
 
 	//variable check
 	if( ($row["password"] === $password) ){
-		//buttons
-		echo '
-		<div>
-			<a href="user.php"<button type="button" class="btn-lg btn-primary active"></button>User Mode</a>
-	        	<a href="dj.php"<button type="button" class="btn-lg btn-primary active"></button>DJ Mode</a>
-		</div><br>';
- 
-		//text
-		echo "Event Name: " .  $row["event_name"] . "<br>";
-		echo "Event ID: " . $row["event_id"];
-
 		//set session variables
-		$_SESSION["EVENT_ID"] 	= $row["event_password"];
+		$_SESSION["EVENT_ID"] 	= $row["event_id"];
 		$_SESSION["EVENT_NAME"] = $row["event_name"];
+
+ 	       //diconnect to database
+        	$conn->close();
+
+		//redirection
+		header( 'Location: home.php' );	
 	}
 	else{
 		//invalid output
@@ -73,9 +68,13 @@
 		echo "Event ID: " . $event_id . "<br>";
 		echo "Given Password: " . $password . "<br>";
 		echo "Actual Password: " . $row["password"];
+
+        	//diconnect to database
+        	$conn->close();
+	
+		//redirection
+		echo'<input type=button" href="join.html">Click Me</input>';
 	}
-        //diconnect to database
-        $conn->close();
 	?>
   </div>
   <script>
