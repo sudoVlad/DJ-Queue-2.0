@@ -1,12 +1,11 @@
-<?php
-	// Start the session
-	session_start();
+<?php 
+	session_start(); 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>DJ Queue 2.0</title>
-  <meta charset="utf-8">
+  <title> <?php echo "Event Name: " . $event_id; ?> </title>
+  <meta charset="utf-8" http-equiv="refresh" content="0,URL=home.php"/>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -21,21 +20,22 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html">DJ Queue 2.0</a>
+      <a class="navbar-brand" href="home.php">DJ Queue 2.0 echo "Event ID: " . $_SESSION["EVENT_ID"]; ?></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="create.html">Create Event</a></li>
-        <li><a href="join.html">Join Event</a></li>
+        <li><a href="home.html">Home</a></li>
+	<li><a href="user.php">User Mode</a></li>
+        <li><a href="dj.php">DJ Mode</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
  
    <div id="main" class="container row" style="text-align:center">
-<?php
+	<?php
 	//connect to database
 	require 'connection.php';
         $conn 		= Connect();
@@ -52,35 +52,31 @@
 
 	//variable check
 	if( ($row["password"] === $password) ){
-		//output
-		echo "<h1>Welcome</h1><br>";
+		//buttons
+		echo '
+		<div>
+			<a href="user.php"<button type="button" class="btn-lg btn-primary active"></button>User Mode</a>
+	        	<a href="dj.php"<button type="button" class="btn-lg btn-primary active"></button>DJ Mode</a>
+		</div><br>';
+ 
+		//text
 		echo "Event Name: " .  $row["event_name"] . "<br>";
-		echo "Event ID: " . $event_id;
+		echo "Event ID: " . $row["event_id"];
 
 		//set session variables
-		$_SESSION["EVENT_ID"] = $event_id;
+		$_SESSION["EVENT_ID"] 	= $row["event_password"];
 		$_SESSION["EVENT_NAME"] = $row["event_name"];
-		$_SESSION["ON"] = true;
-	}else{
+	}
+	else{
 		//invalid output
 		echo "<h1>Incorrect Credentials</h1>";
 		echo "Event ID: " . $event_id . "<br>";
 		echo "Given Password: " . $password . "<br>";
 		echo "Actual Password: " . $row["password"];
 	}
-
-        //output
-        //if ($result->num_rows > 0){
-        //        while($row = $result->fetch_assoc()){
-        //                echo $row["song_name"] . " " . $row["artist"];
-        //                echo "<br>";
-        //        }
-        //}
-       	//else{ echo "0 results"; }
-
         //diconnect to database
         $conn->close();
-?>
+	?>
   </div>
   <script>
  function yesnoCheck() {

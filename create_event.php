@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,28 +36,34 @@
   <div class="container row" style="text-align:center">
     <h1>Event Created</h1>
 
-  <?php
-require 'connection.php';
-$conn    	= Connect();
-$event_name    	= $conn->real_escape_string($_POST['event_name']);
-$event_id   	= $conn->real_escape_string($_POST['event_id']);
-$dj_password    = $conn->real_escape_string($_POST['dj_password']);
-$password 	= $conn->real_escape_string($_POST['password']);
-$privacy    	= $conn->real_escape_string($_POST['privacy']);
-$query   	= "INSERT into event (event_name,event_id,dj_password,password,privacy) VALUES('" . $event_name . "','" . $event_id . "','" . $dj_password . "','" . $password . "','" . $privacy . "')";
-$success 	= $conn->query($query);
+<?php
+	//connect to database
+	require 'connection.php';
+	$conn    	= Connect();
+	
+	//variable set
+	$event_name    	= $conn->real_escape_string($_POST['event_name']);
+	$event_id   	= $conn->real_escape_string($_POST['event_id']);
+	$dj_password    = $conn->real_escape_string($_POST['dj_password']);
+	$password 	= $conn->real_escape_string($_POST['password']);
+	$privacy    	= $conn->real_escape_string($_POST['privacy']);
+	$query   	= "INSERT into event (event_name,event_id,dj_password,password,privacy) VALUES('" . $event_name . "','" . $event_id . "','" . $dj_password . "','" . $password . "','" . $privacy . "')";
+	$success 	= $conn->query($query);
  
-if (!$success){ 
-   	header( 'Location: create.html' );
-	die("Try Again: ".$conn->error);
-}
+	//error check
+	if (!$success){ 
+   		header( 'Location: create.html' );
+		die("Try Again: ".$conn->error);
+	}
  
-echo "Event ID: $event_id<br>";
-echo "Event Name: $event_name<br>";
-echo "DJ Password: $dj_password<br>";
-echo "Privacy: $privacy<br>";
-
-$conn->close(); 
+	//output
+	echo "Event ID: $event_id<br>";
+	echo "Event Name: $event_name<br>";
+	echo "DJ Password: $dj_password<br>";
+	echo "Privacy: $privacy<br>";
+	
+	//close connection
+	$conn->close(); 
 ?>
   </div>
   <script>

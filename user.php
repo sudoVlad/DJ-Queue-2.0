@@ -38,7 +38,6 @@ body{
 </nav>
 
       <h1 style="text-align:center">User Mode</h1>
-
     <row style="text-align:center">
       <div class="col-lg-6 col-sm-12">
        <h3>Add to Playlist</h3>
