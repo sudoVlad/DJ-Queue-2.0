@@ -24,8 +24,8 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="user.php">User Mode</a></li>
+        <li><a href="home.php">Home</a></li>
+        <li><a href="dj.php">User Mode</a></li>
         <li><a href="dj.php">DJ Mode</a></li>
 	<li><a href="contact.html">Contact</a></li>
       	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
@@ -33,20 +33,19 @@
     </div>
   </div>
 </nav>
-   <h1 style="text-align:center">User Mode</h1>
+   <h1 style="text-align:center">DJ Mode</h1>
     <row style="text-align:center">
       <div class="col-lg-6 col-sm-12">
-       <h3>Add to Playlist</h3>
+       <h3>Adjust  Playlist</h3>
 
-         <form action="add_song.php" method="post">
-         	Song Name <input type="text" name="song_name" required><br>
-         	Artist <input type="text" name="artist" required>
-         	<input type="submit" value="Send">
+         <form action="edit_song.php" method="post">
+         	Song ID <input type="number" name="song_id" required>
+         	<input type="submit" value="Remove">
         </form>
 
       </div>      
       <div style="color:white; background-color: black" class="col-lg-6 col-sm-12">
-       <h3>View Playlist</h3>
+       <h3>Playlist</h3>
 <?php
 	//connect to database
 	require 'connection.php';
@@ -57,13 +56,13 @@
 	$event_id = $_SESSION["EVENT_ID"];
 	
 	//query the database
-	$sql = "SELECT song_name,artist FROM `playlist` WHERE event_id = '" . $event_id . "'";
+	$sql = "SELECT song_id,song_name,artist FROM `playlist` WHERE event_id = '" . $event_id . "'";
 	$result = $conn->query($sql);
 
 	//output
 	if ($result->num_rows > 0){
     		while($row = $result->fetch_assoc()){
-			echo $row["song_name"] . " " . $row["artist"];
+			echo $row["song_id"] . " " . $row["song_name"] . " " . $row["artist"];
 			echo "<br>";
 		}	
 	}

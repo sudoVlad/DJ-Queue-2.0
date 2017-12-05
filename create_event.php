@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php 
+	session_start(); 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,23 +47,20 @@
 	$event_name    	= $conn->real_escape_string($_POST['event_name']);
 	$event_id   	= $conn->real_escape_string($_POST['event_id']);
 	$dj_password    = $conn->real_escape_string($_POST['dj_password']);
-	$password 	= $conn->real_escape_string($_POST['password']);
-	$privacy    	= $conn->real_escape_string($_POST['privacy']);
-	$query   	= "INSERT into event (event_name,event_id,dj_password,password,privacy) VALUES('" . $event_name . "','" . $event_id . "','" . $dj_password . "','" . $password . "','" . $privacy . "')";
+	$query   	= "INSERT into event (event_name,event_id,dj_password) VALUES('" . $event_name . "','" . $event_id . "','" . $dj_password . "')";
 	//$query   	= "INSERT into playlist (song_id,event_id,song_name,artist) VALUES('" . $song_id . "','" . $event_id . "','" . $song_name . "','" . $artist . "')";
 	$success 	= $conn->query($query);
  
 	//error check
 	if (!$success){ 
-   		header( 'Location: create.html' );
 		die("Try Again: ".$conn->error);
+   		echo '<a href="create.html"<button type="button" class="btn-lg btn-primary active"></button>Go Back</a>';
 	}
  
 	//output
 	echo "Event ID: $event_id<br>";
 	echo "Event Name: $event_name<br>";
 	echo "DJ Password: $dj_password<br>";
-	echo "Privacy: $privacy<br>";
 	
 	//close connection
 	$conn->close(); 

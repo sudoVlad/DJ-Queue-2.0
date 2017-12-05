@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,34 +18,44 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html">DJ Queue 2.0</a>
-    </div>
+      <a class="navbar-brand" href="index.hmtl">DJ Queue 2.0</a>
+</div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="index.html">Home</a></li>
         <li><a href="create.html">Create Event</a></li>
         <li><a href="join.html">Join Event</a></li>
         <li><a href="contact.html">Contact</a></li>
+        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
-  <div id="main" class="container row" style="text-align:center">
-    <h1>Join Event</h1>
+  <div class="container row" style="text-align:center">
+    <h1>Song Added</h1>
 
-    <form action="join_event.php" method="post">
-	Event ID<input name="event_id" type="number" maxlength="5" minlength="5" value="" required><br>
-      	Password<input name="password" type="password" value="null" required><br>
-	<div class="alert alert-info"><p>Password is null for public events</p></div>
-	<input type="submit" name="submit">       	
-   </form>
+ <?php
+	//connect to database
+	require 'connection.php';
+	$conn    	= Connect();
 
-  </div>
-  <script>
- function yesnoCheck() {
-    if (document.getElementById('yesCheck').checked) {
-        document.getElementById('ifYes').style.display = 'block';}
-    else document.getElementById('ifYes').style.display = 'none';}
-  </script>
+	//variable set
+	$song_id   	= $conn->real_escape_string($_POST['song_id']);
+
+	//deletion
+        $query          = "DELETE FROM playlist WHERE song_id = '" . $song_id . "'"; 
+        $success        = $conn->query($query);
+
+	//database check
+	if (!$success) { die("Couldn't enter data: ".$conn->error);}
+
+	//close the database
+	$conn->close(); 
+
+	//return to user mode
+	header( 'Location: dj.php' );
+?>
+</div>
+
 </body>
 </html>

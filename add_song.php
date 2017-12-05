@@ -47,15 +47,14 @@
 	$song_id	= rand(10000,99999);
 	$_SESSION["SONG_ID"] = $song_id;	
 
-	//database input
+	//input
 	$query   	= "INSERT into playlist (song_name,artist,event_id,song_id) VALUES('" . $song_name . "','" . $artist . "','" . $event_id . "','" . $song_id . "')";
-	//$query   	= "INSERT into event (event_name,event_id,dj_password,password,privacy) VALUES('" . $event_name . "','" . $event_id . "','" . $dj_password . "','" . $password . "','" . $privacy . "')";
 	$success 	= $conn->query($query);
 	 
 	//database check
 	if (!$success) { die("Couldn't enter data: ".$conn->error);}
 
-	echo "Song ID: " . $song_id;	
+	echo "Song ID: " . $song_id . $artist;	
 
 	//close the database
 	$conn->close(); 
