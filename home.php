@@ -30,7 +30,12 @@
       <ul class="nav navbar-nav navbar-right">
         <li class="active"><a href="home.php">Home</a></li>
         <li><a href="user.php">User Mode</a></li>
-        <li><a href="dj.php">DJ Mode</a></li>
+	<?php
+                if($_SESSION["DJ_MODE"] == "on"){
+                	echo '<li><a href="dj.php">DJ Mode</a></li>';
+	        }
+        ?>
+
         <li><a href="contact.php">Contact</a></li>
       	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
       </ul>
