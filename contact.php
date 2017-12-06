@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,15 +19,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html">DJ Queue 2.0</a>
+      <a class="navbar-brand" href="index.php">DJ Queue 2.0</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="create.html">Create Event</a></li>
-        <li><a href="join.html">Join Event</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+	<?php
+                if(isset($_SESSION['EVENT_ID'])){
+                        echo '<li><a href="home.php">Home Portal</a></li>';
+        		echo '<li><a href="user.php">User Mode</a></li>';
+        		echo '<li><a href="dj.php">DJ Mode</a></li>';
+		}else{
+        		echo '<li><a href="create.php">Create Event</a></li>';
+		        echo '<li><a href="join.php">Join Event</a></li>';
+		}
+	?>
+        <li class="active"><a href="contact.html">Contact</a></li>
+	<?php
+                if(isset($_SESSION['EVENT_ID']))
+                        echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+        ?>
       </ul>
     </div>
   </div>
@@ -42,12 +53,11 @@
 	LinkedIn: <a href="https://www.linkedin.com/in/vladimirbeauge/">LinkedIn</a><br>
 	Github: <a href="https://github.com/VladimirBeauge/DJ-Queue-2.0">GitHub</a><br>
 	</div>
-	</php
-	<div class="col-lg-6 col-sm-12">
+
+<!--	<div class="col-lg-6 col-sm-12">
 	Name: Ian Matthews<br>
 	Email: <a href="mailto:ianlennymatthews@gmail.com">ianlennymattews@gmail.com</a>
-	</div>
-	?php>
+	</div> -->
 <footer>
 </footer>
 </body>

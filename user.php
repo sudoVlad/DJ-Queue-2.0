@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+	//start session
+	session_start(); 
+	
+	//logged in user
+        if( !isset($_SESSION["EVENT_ID"]) ) { header('Location: index.php');}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,13 +26,16 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="home.php">Home Portal</a>
+      <a class="navbar-brand" href="index.php">DJ Queue 2.0</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="home.php">Home</a></li>
         <li class="active"><a href="user.php">User Mode</a></li>
-        <li><a href="dj.php">DJ Mode</a></li>
+	<?php
+                if( ($_SESSION['DJ_MODE']) == "on" )
+                        echo '<li><a href="dj.php">DJ Mode</a></li>';
+        ?>
       	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
@@ -44,7 +53,7 @@
         </form>
 
       </div>      
-      <div style="color:white; background-color: black" class="col-lg-6 col-sm-12">
+      <div class="col-lg-6 col-sm-12">
        <h3>View Playlist</h3>
 <?php
 	//connect to database
@@ -56,7 +65,9 @@
 	$event_id = $_SESSION["EVENT_ID"];
 	
 	//query the database
-	$sql = "SELECT song_name,artist FROM `playlist` WHERE event_id = '" . $event_id . "'";
+	//$sql = "SELECT song_name,artist FROM `playlist` WHERE event_id = '" . $event_id . "'";
+	$sql = "SELECT `song_name`,`artist` FROM `playlist` WHERE event_id = '" . $event_id . "'  ORDER BY `time` ASC";
+
 	$result = $conn->query($sql);
 
 	//output

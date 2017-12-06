@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php  session_start(); //start session ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,15 +19,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html">DJ Queue 2.0</a> 
+      <a class="navbar-brand" href="index.php">DJ Queue 2.0</a> 
    </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="create.html">Create Event</a></li>
-        <li><a href="join.html">Join Event</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      	<?php
+		//only show portal if session is created
+		if(isset($_SESSION['EVENT_ID'])){ 
+			echo '<li><a href="home.php">Home Portal</a></li>';
+		}
+	?> 
+	<li><a href="create.php">Create Event</a></li>
+	<li><a href="join.php">Join Event</a></li>
+        <li><a href="contact.php">Contact</a></li>
+	<?php
+		//only show logout option if logged into session
+                if(isset($_SESSION['EVENT_ID'])){
+			echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+		}
+	 ?>
       </ul>
     </div>
   </div>
@@ -36,12 +46,14 @@
   <div class="container row" style="text-align:center">
   <h1>DJ Queue 2.0</h1>
   <div class="container row" style="text-align:center">
-  	<a href="create.html"<button type="button" class="btn-lg btn-primary active"></button>Create Event</a>
-  	<a href="join.html"<button type="button" class="btn-lg btn-primary active"></button>Join Event</a>
 	<?php
-		if(isset($_SESSION['EVENT_ID']))
-        		echo '<a href="home.php"<button type="button" class="btn-lg btn-primary active"></button>Home Portal</a>';
-	?>
+		//only show home portal if logged into session
+          	if(isset($_SESSION['EVENT_ID'])){
+			echo '<a href="home.php"<button type="button" class="btn-lg btn-primary active"></button>Home Portal</a><br><br><br>';
+		}
+        ?>
+	<a href="create.php"<button type="button" class="btn-lg btn-primary active"></button>Create Event</a><br>
+        <br><br><a href="join.php"<button type="button" class="btn-lg btn-primary active"></button>Join Event</a>
   </div>
   
  </body>

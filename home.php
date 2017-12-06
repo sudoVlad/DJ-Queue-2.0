@@ -1,4 +1,10 @@
-<?php session_start(); ?>
+<?php 
+	//start session
+	session_start(); 
+	
+	//checked logged in user
+        if( !isset($_SESSION["EVENT_ID"]) ){ header( 'Location: index.php' );}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,14 +24,15 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="home.php">Home Portal</a> 
+      <a class="navbar-brand" href="index.php">DJ Queue 2.0</a> 
    </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="home.php">Home</a></li>
+        <li class="active"><a href="home.php">Home</a></li>
         <li><a href="user.php">User Mode</a></li>
         <li><a href="dj.php">DJ Mode</a></li>
-      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+        <li><a href="contact.php">Contact</a></li>
+      	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
       </ul>
     </div>
   </div>
@@ -34,7 +41,8 @@
   <h1>Home Portal</h1>
   <div class="container row" style="text-align:center">
    <div>
-   	<a href="user.php"<button type="button" class="btn-lg btn-primary active"></button>User Mode</a>
+<!--	<a href="play.php"<button type="button" class="btn-lg btn-primary active"></button>Play</a><br><br><br> -->
+   	<a href="user.php"<button type="button" class="btn-lg btn-primary active"></button>User Mode</a><br><br><br>
 	<?php
 		if($_SESSION["DJ_MODE"] == "on"){
         		echo '<a href="dj.php"<button type="button" class="btn-lg btn-primary active"></button>DJ Mode</a>';
@@ -42,10 +50,34 @@
 	?>
     </div><br>
 	<?php	
+		//connect to database
+		require 'connection.php';
+		$conn = Connect();
+		if($conn->connect_error){ die("Connection Failed: " . $conn->connect_error); }
+
+		//variable declaration
+		$event_id = $_SESSION["EVENT_ID"];
+		$song_count = 0;
+		
+		//database functions
+		$sql = "SELECT COUNT(`song_id`) AS COUNT FROM `playlist` WHERE `event_id` = '" . $event_id . "'";  
+		$result = $conn->query($sql);
+			
+		//output
+		if($result->num_rows > 0){
+			$song_count = $result->fetch_assoc();
+			$song_count = $song_count['COUNT'];
+		}
+		else{ 
+			$song_count = 0;
+		}
+
 		//output
        		echo "Event Name: " . $_SESSION["EVENT_NAME"];
         	echo "<br>";
         	echo "Event ID: " . $_SESSION["EVENT_ID"];
+		echo "<br>";
+		echo "Songs on the <i>queue</i>: " . $song_count;
 	 ?>	
      </div>
  </body>

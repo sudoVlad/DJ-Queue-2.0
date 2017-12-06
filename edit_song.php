@@ -1,61 +1,52 @@
-<?php session_start(); ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>DJ Queue 2.0</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="index.hmtl">DJ Queue 2.0</a>
-</div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="create.html">Create Event</a></li>
-        <li><a href="join.html">Join Event</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-  <div class="container row" style="text-align:center">
-    <h1>Song Added</h1>
-
- <?php
+<?php 
+	//start session
+	session_start();
+	
 	//connect to database
 	require 'connection.php';
 	$conn    	= Connect();
 
-	//variable set
-	$song_id   	= $conn->real_escape_string($_POST['song_id']);
+	//input
+	$song_id 	= $conn->real_escape_string($_POST['song_id']);
+	
+	//variable declaration
+	$song_name_exists = isset($_POST['song_name']);
+	$artist_exists 	= isset($_POST['artist']);
 
-	//deletion
-        $query          = "DELETE FROM playlist WHERE song_id = '" . $song_id . "'"; 
-        $success        = $conn->query($query);
+	//check if POST exists(since its optional), set variables, update database
+	if( $song_name_exists && $artist_exists ){
+		//variable set
+		$song_name = $conn->real_escape_string($_POST['song_name']); 	
+                $artist = $conn->real_escape_string($_POST['artist']);
+	
+		//update database
+        	$sql 	= "UPDATE `playlist` SET `song_name` = '" . $song_name . "', `artist` = '" . $artist . "'  WHERE `song_id` = '" . $song_id . "'";
+	}
+	else if( $artist_exists ){ 
+		//variable set
+		$artist	= $conn->real_escape_string($_POST['artist']);
+        
+		//update database
+		$sql  	= "UPDATE `playlist` SET = `artist` = '" . $artist . "'  WHERE `song_id` = '" . $song_id . "'";
+	}
+	else if( $song_name_exists ){
+		//variable set
+                $song_name = $conn->real_escape_string($_POST['song_name']);    
+        
+		//update database
+		$sql 	= "UPDATE `playlist` SET `song_name` = '" . $song_name . "' WHERE `song_id` = '" . $song_id . "'";			
+	}
+	else{
+		echo "There is nothing to change";	//maybe use a swtich
+	}
 
 	//database check
-	if (!$success) { die("Couldn't enter data: ".$conn->error);}
+	$success = $conn->query($sql);
+	if (!$success){ die("Couldn't enter data: ".$conn->error);}
 
 	//close the database
 	$conn->close(); 
 
-	//return to user mode
-	header( 'Location: dj.php' );
+	//return
+	header("Location: {$_SERVER['HTTP_REFERER']}");
 ?>
-</div>
-
-</body>
-</html>

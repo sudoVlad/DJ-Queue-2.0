@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,14 +18,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="index.html">DJ Queue 2.0</a>
+      <a class="navbar-brand" href="index.php">DJ Queue 2.0</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="create.html">Create Event</a></li>
-        <li><a href="join.html">Join Event</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="create.php">Create Event</a></li>
+        <li class="active"><a href="join.php">Join Event</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <?php
+                if(isset($_SESSION['EVENT_ID']))
+                        echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+        ?>
       </ul>
     </div>
   </div>
@@ -35,9 +40,9 @@
     <form action="join_event.php" method="post">
 	Event ID<input name="event_id" type="number" maxlength="5" minlength="5" value="" required><br>
       	Password<input name="password" type="password" value="null" required><br>
-	DJ Password<input name="dj_password" type="password" value="null" required><br>
+	DJ Password<input name="dj_password" type="password" value="null"><br>
 	<div class="alert alert-info"><p>Password is null for public events</p></div>
-	<input type="submit" name="submit">       	
+	<input type="submit" value="Join">       	
    </form>
   </div>
   <script>

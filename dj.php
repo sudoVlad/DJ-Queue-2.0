@@ -3,9 +3,10 @@
 	session_start();
 	
 	//dj mode validation
-	if( !($_SESSION["DJ_MODE"] == "on") ){
-		header( 'Location: home.php' );
-	}
+	if( !($_SESSION["DJ_MODE"] == "on") ){ header( 'Location: home.php' );}
+		
+	//logged in user check
+        if( !isset($_SESSION["EVENT_ID"]) ){ header( 'Location: index.php' );}
 ?>
 
 <!DOCTYPE html>
@@ -44,40 +45,57 @@
    <h1 style="text-align:center">DJ Mode</h1>
     <row style="text-align:center">
       <div class="col-lg-6 col-sm-12">
-       <h3>Adjust  Playlist</h3>
 
-         <form action="edit_song.php" method="post">
-         	Song ID <input type="number" name="song_id" required>
+	 <h3>Add to Playlist</h3>
+         <form action="add_song.php" method="post">
+                Song Name <input type="text" name="song_name" required><br>
+                Artist <input type="text" name="artist" required><br>
+                <input type="submit" value="Add">
+        </form>
+
+       <h3>Remove From Playlist</h3>
+         <form action="remove_song.php" method="post"><br>
+         	Song ID <input type="number" name="song_id" required><br>
          	<input type="submit" value="Remove">
         </form>
 
+	<h3>Edit Song</h3>
+         <form action="edit_song.php" method="post">
+                Song ID <input type="number" name="song_id" required><br>
+		Song Name <input type="text" name="song_name"><br>
+                Artist <input type="text" name="artist"><br>
+                <input type="submit" value="Edit">
+        </form>
+
       </div>      
-      <div style="color:white; background-color: black" class="col-lg-6 col-sm-12">
+      <div class="col-lg-6 col-sm-12">
        <h3>Playlist</h3>
 <?php
 	//connect to database
-	require 'connection.php';
-	$conn	= Connect();
-	if($conn->connect_error){ die("Connection Failed: " . $conn->connect_error);}
-		
-	//variable declaration
-	$event_id = $_SESSION["EVENT_ID"];
-	
-	//query the database
-	$sql = "SELECT song_id,song_name,artist FROM `playlist` WHERE event_id = '" . $event_id . "'";
-	$result = $conn->query($sql);
+        require 'connection.php';
+        $conn   = Connect();
+        if($conn->connect_error){ die("Connection Failed: " . $conn->connect_error);}
 
-	//output
-	if ($result->num_rows > 0){
-    		while($row = $result->fetch_assoc()){
-			echo $row["song_id"] . " " . $row["song_name"] . " " . $row["artist"];
-			echo "<br>";
-		}	
-	}
-	else{ echo "0 results"; }
+        //variable declaration
+        $event_id = $_SESSION["EVENT_ID"];
 
-	//close db connection
-	$conn->close();
+        //query the database
+        $sql = "SELECT `song_id`,`song_name`,`artist` FROM `playlist` WHERE event_id = '" . $event_id . "'  ORDER BY `time` ASC";
+
+        $result = $conn->query($sql);
+
+        //output
+        if ($result->num_rows > 0){
+                while($row = $result->fetch_assoc()){
+                        echo $row["song_id"] . " " . $row["song_name"] . " " . $row["artist"];
+                        echo "<br>";
+                }
+        }
+        else{ echo "0 results"; }
+
+        //close db connection
+        $conn->close();
+
 ?>
        <div id="result"></div>
       </div>

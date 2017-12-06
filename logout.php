@@ -9,9 +9,6 @@
 	session_destroy();
 
 	//redirection
-	header( 'Location: index.html' );
+	header( 'Location: index.php' );
 ?>
 </div>
-  
-</body>
-</html>

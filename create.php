@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,15 +17,18 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-    <a class="navbar-brand" href="index.html">DJ Queue 2.0</a>
+    <a class="navbar-brand" href="index.php">DJ Queue 2.0</a>
 </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="create.html">Create Event</a></li>
-        <li><a href="join.html">Join Event</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li> 
+        <li><a href="index.php">Home</a></li>
+        <li><a href="create.php">Create Event</a></li>
+        <li><a href="join.php">Join Event</a></li>
+        <li><a href="contact.php">Contact</a></li>
+	<?php
+		if(isset($_SESSION['EVENT_ID']))
+        		echo '<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>';
+	?>
      </ul>
     </div>
   </div>
@@ -44,9 +48,7 @@
 
 	      Private <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" id="yesCheck"><br> 
 	      <div id="ifYes" style="display:none">
-		<div id="ifYes" class="alert alert-success">
-			<p>Your password is null. Change below</p>
-		</div>
+		<div id="ifYes" class="alert alert-success"><p>Your password is null. Change below</p></div>
 
 	     	Password <input type="password" name="password" value="null" id="yes">
 	      </div>
@@ -54,12 +56,13 @@
 		<div class="alert alert-info"><strong>Info!</strong>Duplicate Event IDs will not be accepted.</div>
 	      	<input type="submit" name="submit" value="Submit">
 	</form>
-
   </div>
+
 <script>
  function yesnoCheck() {
     if (document.getElementById('yesCheck').checked) {document.getElementById('ifYes').style.display = 'block';}
     else document.getElementById('ifYes').style.display = 'none';}
   </script>
+
 </body>
 </html>
