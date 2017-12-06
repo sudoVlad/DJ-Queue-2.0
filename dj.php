@@ -1,9 +1,18 @@
-<?php session_start(); ?>
+<?php 
+	//start session
+	session_start();
+	
+	//dj mode validation
+	if( !($_SESSION["DJ_MODE"] == "on") ){
+		header( 'Location: home.php' );
+	}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <title> <?php echo "Event Name: " . $_SESSION["EVENT_NAME"]; ?> </title>
-  <meta charset="utf-8">
+  <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -25,9 +34,8 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="home.php">Home</a></li>
-        <li><a href="dj.php">User Mode</a></li>
+        <li><a href="user.php">User Mode</a></li>
         <li><a href="dj.php">DJ Mode</a></li>
-	<li><a href="contact.html">Contact</a></li>
       	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>

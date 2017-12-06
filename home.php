@@ -10,7 +10,6 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
@@ -26,20 +25,22 @@
         <li><a href="home.php">Home</a></li>
         <li><a href="user.php">User Mode</a></li>
         <li><a href="dj.php">DJ Mode</a></li>
-        <li><a href="contact.html">Contact</a></li>
       	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
-  
   <div class="container row" style="text-align:center">
   <h1>Home Portal</h1>
   <div class="container row" style="text-align:center">
    <div>
    	<a href="user.php"<button type="button" class="btn-lg btn-primary active"></button>User Mode</a>
-        <a href="dj.php"<button type="button" class="btn-lg btn-primary active"></button>DJ Mode</a>
-   </div><br>
+	<?php
+		if($_SESSION["DJ_MODE"] == "on"){
+        		echo '<a href="dj.php"<button type="button" class="btn-lg btn-primary active"></button>DJ Mode</a>';
+		}  
+	?>
+    </div><br>
 	<?php	
 		//output
        		echo "Event Name: " . $_SESSION["EVENT_NAME"];

@@ -31,26 +31,32 @@
 </nav>
   <div class="container row" style="text-align:center">
     <h1>Create Event</h1>
-    <form action="create_event.php" method="post">
-      Event ID <input type="number" name="event_id" required> 
-	<p id="demo"></p>
-        <script> document.getElementById("demo").innerHTML = "Suggested Event ID: " + Math.floor( Math.random() * 100000); </script>
-      Event Name <input type="text" name="event_name" value="" required><br>
-      DJ Password <input type="password" name="dj_password" value="" required><br>
-<!--  Public <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" checked>
-      Private <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" id="yesCheck"><br> 
-      <div id="ifYes" style="display:none">
-	<div id="ifYes" class="alert alert-success"><p>Your event password is null. Change below</p></div></div>
-      Password <input type="password" name="password" value="null" id="yes">
-      </div>
--->	<div class="alert alert-info">
-		<strong>Info!</strong>
-		Duplicate Event IDs will not be accepted.
-	</div>
-      <input type="submit" name="submit" value="Submit">
-    </form>
+  
+	  <form action="create_event.php" method="post">
+	      Event ID <input type="number" name="event_id" required> <p id="rand_num"></p>
+		<script> document.getElementById("rand_num").innerHTML = "Suggested Event ID: " + Math.floor( Math.random() * 100000); </script>
+
+	      Event Name <input type="text" name="event_name" value="" required><br>
+
+	      DJ Password <input type="password" name="dj_password" value="" required><br>
+
+	      Public <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" checked>
+
+	      Private <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" id="yesCheck"><br> 
+	      <div id="ifYes" style="display:none">
+		<div id="ifYes" class="alert alert-success">
+			<p>Your password is null. Change below</p>
+		</div>
+
+	     	Password <input type="password" name="password" value="null" id="yes">
+	      </div>
+	
+		<div class="alert alert-info"><strong>Info!</strong>Duplicate Event IDs will not be accepted.</div>
+	      	<input type="submit" name="submit" value="Submit">
+	</form>
+
   </div>
-  <script>
+<script>
  function yesnoCheck() {
     if (document.getElementById('yesCheck').checked) {document.getElementById('ifYes').style.display = 'block';}
     else document.getElementById('ifYes').style.display = 'none';}

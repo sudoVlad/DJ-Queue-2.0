@@ -24,10 +24,9 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li class="active"><a href="index.html">Home</a></li>
-        <li><a href="user.php">User Mode</a></li>
+        <li><a href="home.php">Home</a></li>
+        <li class="active"><a href="user.php">User Mode</a></li>
         <li><a href="dj.php">DJ Mode</a></li>
-	<li><a href="contact.html">Contact</a></li>
       	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
@@ -40,7 +39,7 @@
 
          <form action="add_song.php" method="post">
          	Song Name <input type="text" name="song_name" required><br>
-         	Artist <input type="text" name="artist" required>
+         	Artist <input type="text" name="artist" required><br>
          	<input type="submit" value="Send">
         </form>
 

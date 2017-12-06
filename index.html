@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,6 +38,10 @@
   <div class="container row" style="text-align:center">
   	<a href="create.html"<button type="button" class="btn-lg btn-primary active"></button>Create Event</a>
   	<a href="join.html"<button type="button" class="btn-lg btn-primary active"></button>Join Event</a>
+	<?php
+		if(isset($_SESSION['EVENT_ID']))
+        		echo '<a href="home.php"<button type="button" class="btn-lg btn-primary active"></button>Home Portal</a>';
+	?>
   </div>
   
  </body>
