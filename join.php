@@ -34,7 +34,7 @@
     </div>
   </div>
 </nav>
-  <div id="main" class="container row" style="text-align:center">
+  <div id="main" class="container" style="text-align:center">
     <h1>Join Event</h1>
 
     <form action="join_event.php" method="post">
@@ -42,7 +42,11 @@
       	Password<input name="password" type="password" value="null" required><br>
 	DJ Password<input name="dj_password" type="password" value="null"><br>
 	<div class="alert alert-info"><p>Password is null for public events</p></div>
-	<input type="submit" value="Join">       	
+	<div class="form-group">
+		<div class="col-sm-offset-2 col-sm-10">
+			<button type="submit" class="btn btn-default">Join Event</button>
+     		</div>
+	</div>
    </form>
   </div>
   <script>

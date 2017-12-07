@@ -20,8 +20,7 @@
  
 	//error check
 	if (!$success){ 
-   		echo '<a href="create.html"<button type="button" class="btn-lg btn-primary active"></button>Go Back</a>';
-                die("Try Again: ".$conn->error);
+		header('Location: create.php');
 	}
  
 	//output

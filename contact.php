@@ -45,7 +45,7 @@
 </nav>
   
 <body>
-	<div class="container row" style="text-align:center">
+	<div class="container" style="text-align:center">
   		<h3>Contact Information</h3><br> 
 	Name: Vladimir Beauge<br>
 	Email: <a href="mailto:vladBeauge@gmail.com">vladBeauge@gmail.com</a><br>

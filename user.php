@@ -42,15 +42,20 @@
     </div>
   </div>
 </nav>
-   <h1 style="text-align:center">User Mode</h1>
-    <row style="text-align:center">
+	<div class="container" style="text-align:center">
+   	<h1 style="text-align:center">User Mode<?php echo ' : ' . $_SESSION["EVENT_NAME"] . ' : ' . $_SESSION["EVENT_ID"]; ?></h1>
+    	<!-- <row style="text-align:center"> -->
       <div class="col-lg-6 col-sm-12">
        <h3>Add to Playlist</h3>
 
          <form action="add_song.php" method="post">
          	Song Name <input type="text" name="song_name" required><br>
          	Artist <input type="text" name="artist" required><br>
-         	<input type="submit" value="Send">
+        	<div class="form-group">
+                	<div class="col-sm-offset-2 col-sm-10">
+                        	<button type="submit" class="btn btn-default">Send</button>
+                	</div>
+        	</div>
         </form>
 
       </div>      

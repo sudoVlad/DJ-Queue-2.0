@@ -44,9 +44,9 @@
   </div>
 </nav>
   
-  <div class="container row" style="text-align:center">
+  <div class="container" style="text-align:center">
   <h1>DJ Queue 2.0</h1>
-  <div class="container row" style="text-align:center">
+  <div class="container" style="text-align:center">
 	<?php
 		//only show home portal if logged into session
           	if(isset($_SESSION['EVENT_ID'])){
