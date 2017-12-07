@@ -76,9 +76,9 @@
 		
 		//output
 	//	echo "IP Address " . $_SERVER['REMOTE_ADDR'];
-		echo "Name<br>";
-		echo "Event ID<br>";
-		echo "Number of Songs on the <i>queue</i>: " . $song_count . "<br>";	
+		echo "Event Name: " . $_SESSION["EVENT_NAME"] . "<br>";
+		echo "Event ID: " . $_SESSION["EVENT_ID"] . "<br>";
+		echo "Songs on the <i>queue</i>: " . $song_count . "<br>";	
 	//	echo "Number Users using //event id<br>";
 	//	echo "Number of Events created by you //output events<br>";
 	//	echo "Number of Songs created by you //output songs where your IP matches";
