@@ -30,20 +30,24 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="home.php">Home Portal</a>
+      <a class="navbar-brand" href="index.php">DJ Queue 2.0</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="home.php">Home</a></li>
         <li><a href="user.php">User Mode</a></li>
-        <li><a href="dj.php">DJ Mode</a></li>
+        <li class="active"><a href="dj.php">DJ Mode</a></li>
+        <li><a href="contact.php">Contact</a></li>
       	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>
   </div>
 </nav>
 	<div class="container" style="text-align:center">
-   <h1 style="text-align:center">DJ Mode<?php echo ' : ' . $_SESSION["EVENT_NAME"] . ' : ' . $_SESSION["EVENT_ID"]; ?></h1>
+   <h1 style="text-align:center">DJ Mode</h1>
+<h5><?php echo 'Event Name: ' . $_SESSION["EVENT_NAME"] . '<br>' .
+                 'Event ID: ' . $_SESSION["EVENT_ID"]; ?>
+</h5>
     <row style="text-align:center">
       <div class="col-lg-6 col-sm-12">
 

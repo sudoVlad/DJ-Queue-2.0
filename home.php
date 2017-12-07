@@ -42,8 +42,8 @@
   </div>
 </nav>
   <div class="container" style="text-align:center">
-  <h1>Home Portal<?php echo ' : ' . $_SESSION["EVENT_NAME"] . ' : ' . $_SESSION["EVENT_ID"]; ?></h1>
-  <div class="container" style="text-align:center">
+  <h1>Home Portal</h1>
+ <div class="container" style="text-align:center">
    <div>
 <!--	<a href="play.php"<button type="button" class="btn-lg btn-primary"></button>Play</a><br><br><br> -->
    	<a href="user.php"<button type="button" class="btn-lg btn-primary"></button>User Mode</a><br><br><br>
