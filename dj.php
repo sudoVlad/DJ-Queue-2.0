@@ -44,10 +44,10 @@
   </div>
 </nav>
 	<div class="container" style="text-align:center">
-   <h1 style="text-align:center">DJ Mode</h1>
 <h5><?php echo 'Event Name: ' . $_SESSION["EVENT_NAME"] . '<br>' .
                  'Event ID: ' . $_SESSION["EVENT_ID"]; ?>
 </h5>
+   <h1 style="text-align:center">DJ Mode</h1>
     <row style="text-align:center">
       <div class="col-lg-6 col-sm-12">
 
@@ -56,9 +56,7 @@
                 Song Name <input type="text" name="song_name" required><br>
                 Artist <input type="text" name="artist" required><br>
      	        <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">Add Song</button>
-                        </div>
+                	<button type="submit" class="btn btn-default">Add Song</button>
                 </div>
 	   </form>
 
@@ -66,10 +64,8 @@
          <form action="remove_song.php" method="post"><br>
          	Song ID <input type="number" name="song_id" required><br>
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">Remove Song</button>
-                        </div>
-                </div>
+                    	<button type="submit" class="btn btn-default">Remove Song</button>
+                  </div>
 	 </form>
 
 	<h3>Edit Song</h3>
@@ -78,9 +74,7 @@
 		Song Name <input type="text" name="song_name"><br>
                 Artist <input type="text" name="artist"><br>
                 <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-default">Edit Song</button>
-                        </div>
+                	<button type="submit" class="btn btn-default">Edit Song</button>
                 </div>
         </form>
 

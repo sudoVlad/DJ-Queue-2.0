@@ -27,7 +27,9 @@
                 if(isset($_SESSION['EVENT_ID'])){
                         echo '<li><a href="home.php">Home Portal</a></li>';
         		echo '<li><a href="user.php">User Mode</a></li>';
-        		echo '<li><a href="dj.php">DJ Mode</a></li>';
+        		if( $_SESSION['DJ_MODE'] == "on" ){
+				echo '<li><a href="dj.php">DJ Mode</a></li>';
+			}
 		}else{
 			echo '<li><a href="index.php">Home</a></li>';
 			echo '<li><a href="create.php">Create Event</a></li>';

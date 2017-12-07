@@ -43,9 +43,7 @@
 	DJ Password<input name="dj_password" type="password" value="null"><br>
 	<div class="alert alert-info"><p>Password is null for public events</p></div>
 	<div class="form-group">
-		<div class="col-sm-offset-2 col-sm-10">
 			<button type="submit" class="btn btn-default">Join Event</button>
-     		</div>
 	</div>
    </form>
   </div>
