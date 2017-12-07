@@ -12,7 +12,10 @@
 	$dj_password    = $conn->real_escape_string($_POST['dj_password']);
 	$password	= $conn->real_escape_string($_POST['password']);
 	$privacy	= $conn->real_escape_string($_POST['privacy']);
-	$sql   		= "INSERT into event (event_name,event_id,dj_password) VALUES('" . $event_name . "','" . $event_id . "','" . $dj_password . "')";
+	$creator_IP	= $_SERVER['REMOTE_ADDR'];
+	
+	//update database
+	$sql   		= "INSERT into event (event_name,event_id,dj_password,creator_IP) VALUES('" . $event_name . "','" . $event_id . "','" . $dj_password . "', '" . $creator_IP . "')";
 	$success 	= $conn->query($sql);
  
 	//error check

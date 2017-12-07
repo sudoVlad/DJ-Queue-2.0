@@ -29,7 +29,8 @@
         		echo '<li><a href="user.php">User Mode</a></li>';
         		echo '<li><a href="dj.php">DJ Mode</a></li>';
 		}else{
-        		echo '<li><a href="create.php">Create Event</a></li>';
+			echo '<li><a href="index.php">Home</a></li>';
+			echo '<li><a href="create.php">Create Event</a></li>';
 		        echo '<li><a href="join.php">Join Event</a></li>';
 		}
 	?>
@@ -45,12 +46,12 @@
   
 <body>
 	<div class="container row" style="text-align:center">
-  <h3>Contact Information</h3><br> 
+  		<h3>Contact Information</h3><br> 
 	Name: Vladimir Beauge<br>
 	Email: <a href="mailto:vladBeauge@gmail.com">vladBeauge@gmail.com</a><br>
 	Personal Website: <a href="https://vladimirbeauge.github.io">Personal Website</a><br>
 	LinkedIn: <a href="https://www.linkedin.com/in/vladimirbeauge/">LinkedIn</a><br>
-	Github: <a href="https://github.com/VladimirBeauge/DJ-Queue-2.0">GitHub</a><br>
+	Github: <a href="https://github.com/VladimirBeauge">GitHub</a><br>
 <footer>
 </footer>
 </body>

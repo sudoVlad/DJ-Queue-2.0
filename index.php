@@ -29,6 +29,7 @@
 			echo '<li><a href="home.php">Home Portal</a></li>';
 		}
 	?> 
+        <li class="active"><a href="index.php">Home</a></li>
 	<li><a href="create.php">Create Event</a></li>
 	<li><a href="join.php">Join Event</a></li>
         <li><a href="contact.php">Contact</a></li>
@@ -49,11 +50,11 @@
 	<?php
 		//only show home portal if logged into session
           	if(isset($_SESSION['EVENT_ID'])){
-			echo '<a href="home.php"<button type="button" class="btn-lg btn-primary active"></button>Home Portal</a><br><br><br>';
+			echo '<a href="home.php"<button type="button" class="btn-lg btn-primary"></button>Home Portal</a><br><br><br>';
 		}
         ?>
-	<a href="create.php"<button type="button" class="btn-lg btn-primary active"></button>Create Event</a><br>
-        <br><br><a href="join.php"<button type="button" class="btn-lg btn-primary active"></button>Join Event</a>
+	<a href="create.php"<button type="button" class="btn-lg btn-primary"></button>Create Event</a><br>
+        <br><br><a href="join.php"<button type="button" class="btn-lg btn-primary"></button>Join Event</a>
   </div>
   
  </body>

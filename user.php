@@ -36,6 +36,7 @@
                 if( ($_SESSION['DJ_MODE']) == "on" )
                         echo '<li><a href="dj.php">DJ Mode</a></li>';
         ?>
+        <li><a href="contact.php">Contact</a></li>
       	<li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
       </ul>
     </div>

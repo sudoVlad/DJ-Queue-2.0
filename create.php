@@ -22,7 +22,7 @@
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
         <li><a href="index.php">Home</a></li>
-        <li><a href="create.php">Create Event</a></li>
+        <li class="active"><a href="create.php">Create Event</a></li>
         <li><a href="join.php">Join Event</a></li>
         <li><a href="contact.php">Contact</a></li>
 	<?php
