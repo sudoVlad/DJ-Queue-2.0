@@ -38,10 +38,10 @@
     <h1>Join Event</h1>
 
     <form action="join_event.php" method="post">
-	Event ID<input name="event_id" type="number" maxlength="5" minlength="5" value="" required><br>
-      	Password<input name="password" type="password" value="null" required><br>
-	DJ Password<input name="dj_password" type="password" value="null"><br>
-	<div class="alert alert-info"><p>Password is null for public events</p></div>
+	Event ID<input name="event_id" type="number" placeholder="Event ID" maxlength="5" minlength="5" required><br>
+      	Password<input name="password" type="password" placeholder="default is null" required><br>
+	DJ Password<input name="dj_password" type="password" placeholder="password"><br>
+	<div class="alert alert-info"><p><strong>Info!</strong> Incorrect credentials will be redirected here</p></div>
 	<div class="form-group">
 			<button type="submit" class="btn btn-default">Join Event</button>
 	</div>

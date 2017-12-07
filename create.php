@@ -37,20 +37,20 @@
     <h1>Create Event</h1>
   
 	  <form action="create_event.php" method="post">
-	      Event ID <input type="number" name="event_id" required> <p id="rand_num"></p>
+	      Event ID <input type="number" name="event_id" placeholder="Event ID" required> <p id="rand_num"></p>
 			<script> 
 				//output	
 				document.getElementById("rand_num").innerHTML = "Suggested Event ID: " + Math.floor( Math.random() * 100000);
 			</script>
-	      Event Name <input type="text" name="event_name" value="" required><br>
-	      DJ Password <input type="password" name="dj_password" value="" required><br>
+	      Event Name <input type="text" name="event_name" placeholder="Event Name" required><br>
+	      DJ Password <input type="password" name="dj_password" placeholder="Password" required><br>
 	      Public <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" checked>
 	      Private <input type="radio" onclick="javascript:yesnoCheck();" name="privacy" id="yesCheck"><br> 
 	      <div id="ifYes" style="display:none">
 				<div id="ifYes" class="alert alert-success">
 					<p>Your password is null. Change below</p>
 				</div>
-	     		Password <input type="password" name="password" value="null" id="yes">
+	     		Password <input type="password" name="password" placeholder="Password" value="null" id="yes">
 	      </div>
 		
 		   <div class="form-group">

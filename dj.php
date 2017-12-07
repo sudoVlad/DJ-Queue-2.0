@@ -22,7 +22,7 @@
 <style> body{ height:100%;} </style>
 
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -53,16 +53,16 @@
 
 	 <h3>Add to Playlist</h3>
          <form action="add_song.php" method="post">
-                Song Name <input type="text" name="song_name" required><br>
-                Artist <input type="text" name="artist" required><br>
+                Song Name <input type="text" placeholder="song name" name="song_name" required><br>
+                Artist <input type="text" placeholder="artist" name="artist" required><br>
      	        <div class="form-group">
                 	<button type="submit" class="btn btn-default">Add Song</button>
                 </div>
 	   </form>
 
        <h3>Remove From Playlist</h3>
-         <form action="remove_song.php" method="post"><br>
-         	Song ID <input type="number" name="song_id" required><br>
+         <form action="remove_song.php" placeholder="song ID" method="post"><br>
+         	Song ID <input type="number" name="song_id" required placeholder="song ID"><br>
                     <div class="form-group">
                     	<button type="submit" class="btn btn-default">Remove Song</button>
                   </div>
@@ -70,9 +70,9 @@
 
 	<h3>Edit Song</h3>
          <form action="edit_song.php" method="post">
-                Song ID <input type="number" name="song_id" required><br>
-		Song Name <input type="text" name="song_name"><br>
-                Artist <input type="text" name="artist"><br>
+                Song ID <input type="number" name="song_id" placeholder="song ID" required><br>
+		Song Name <input type="text" name="song_name" placeholder="song name"><br>
+                Artist <input type="text" name="artist" placeholder="artist"><br>
                 <div class="form-group">
                 	<button type="submit" class="btn btn-default">Edit Song</button>
                 </div>

@@ -18,7 +18,7 @@
 <style> body{ height:100%;} </style>
 
 <body>
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -51,8 +51,8 @@
       <div class="col-lg-6 col-sm-12">
       <h3>Add to Playlist</h3>
          <form action="add_song.php" method="post">
-         	Song Name <input type="text" name="song_name" required><br>
-         	Artist <input type="text" name="artist" required><br>
+         	Song Name <input type="text" name="song_name" placeholder="song name" required><br>
+         	Artist <input type="text" name="artist" placeholder="artist" required><br>
         	<div class="form-group">
                         	<button type="submit" class="btn btn-default">Send</button>
         	</div>
