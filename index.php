@@ -23,12 +23,6 @@
    </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-      	<?php
-		//only show portal if session is created
-		if(isset($_SESSION['EVENT_ID'])){ 
-			echo '<li><a href="home.php">Home Portal</a></li>';
-		}
-	?> 
         <li class="active"><a href="index.php">Home</a></li>
 	<li><a href="create.php">Create Event</a></li>
 	<li><a href="join.php">Join Event</a></li>
@@ -56,6 +50,7 @@
 	<a href="create.php"<button type="button" class="btn-lg btn-primary"></button>Create Event</a><br>
         <br><br><a href="join.php"<button type="button" class="btn-lg btn-primary"></button>Join Event</a>
   </div>
-  
+ <footer>
+</footer>  
  </body>
 </html>

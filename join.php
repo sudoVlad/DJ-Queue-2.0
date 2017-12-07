@@ -53,5 +53,7 @@
         document.getElementById('ifYes').style.display = 'block';}
     else document.getElementById('ifYes').style.display = 'none';}
   </script>
+<footer>
+</footer>
 </body>
 </html>

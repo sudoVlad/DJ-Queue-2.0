@@ -84,5 +84,7 @@
 	//	echo "Number of Songs created by you //output songs where your IP matches";
 	 ?>
 	</script>
+ <footer>
+</footer>
  </body>
 </html>

@@ -111,5 +111,7 @@
        <div id="result"></div>
       </div>
     </row>
+<footer>
+</footer>
 </body>
 </html>
