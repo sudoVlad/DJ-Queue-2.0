@@ -15,7 +15,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>  
-<style> body{ height:100%;} </style>
 
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
@@ -43,24 +42,21 @@
   </div>
 </nav>
 	<div class="container" style="text-align:center">
-<h5><?php echo 'Event Name: ' . $_SESSION["EVENT_NAME"] . '<br>' .
-                 'Event ID: ' . $_SESSION["EVENT_ID"]; ?>
-</h5>
-   	<h1 style="text-align:center">User Mode</h1>
-    	<!-- <row style="text-align:center"> -->
-      <div class="col-lg-6 col-sm-12">
-      <h3>Add to Playlist</h3>
-         <form action="add_song.php" method="post">
-         	Song Name <input type="text" name="song_name" placeholder="song name" required><br>
-         	Artist <input type="text" name="artist" placeholder="artist" required><br>
-        	<div class="form-group">
-                        	<button type="submit" class="btn btn-default">Send</button>
-        	</div>
-        </form>
-
-      </div>      
-      <div class="col-lg-6 col-sm-12">
-       <h3>View Playlist</h3>
+		<div class="container" style="text-align:center">	
+		<h5><?php echo 'Event Name: ' . $_SESSION["EVENT_NAME"] . '<br>' .  'Event ID: ' . $_SESSION["EVENT_ID"]; ?></h5>
+   		<h1 style="text-align:center">User Mode</h1>
+      		<div class="col-lg-6 col-sm-12">
+      		<h3>Add to Playlist</h3>
+         	<form action="add_song.php" method="post">
+         		Song Name <input type="text" name="song_name" placeholder="song name" required><br>
+         		Artist <input type="text" name="artist" placeholder="artist" required><br>
+        		<div class="form-group">
+                        <button type="submit" class="btn btn-default">Send</button>        	
+			</div>
+        	</form>
+      	</div>      
+      	<div class="col-lg-6 col-sm-12">
+      	<h3>View Playlist</h3>
 <?php
 	//connect to database
 	require 'connection.php';

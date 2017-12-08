@@ -15,6 +15,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
@@ -42,10 +43,13 @@
   </div>
 </nav>
   <div class="container" style="text-align:center">
+	<div class="container" style="text-align:center">
+        <h5><?php echo 'Event Name: ' . $_SESSION["EVENT_NAME"] . '<br>' . 'Event ID: ' . $_SESSION["EVENT_ID"]; ?></h5>
   <h1>Home Portal</h1>
  <div class="container" style="text-align:center">
    <div>
 <!--	<a href="play.php"<button type="button" class="btn-lg btn-primary"></button>Play</a><br><br><br> -->
+
    	<a href="user.php"<button type="button" class="btn-lg btn-primary"></button>User Mode</a><br><br><br>
 	<?php
 		if($_SESSION["DJ_MODE"] == "on"){

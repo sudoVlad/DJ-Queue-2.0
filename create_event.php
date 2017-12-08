@@ -20,8 +20,14 @@
  
 	//error check
 	if (!$success){ 
+		$conn->query($sql);
 		header('Location: create.php');
 	}
+
+	//variable session set
+	$_SESSION["EVENT_ID"] = $event_id;
+	$_SESSION["EVENT_NAME"] = $event_name;
+	$_SESSION["DJ_MODE"] = "on";
  
 	//output
 	echo "Event ID: $event_id<br>";

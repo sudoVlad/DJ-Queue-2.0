@@ -44,9 +44,8 @@
   </div>
 </nav>
 	<div class="container" style="text-align:center">
-<h5><?php echo 'Event Name: ' . $_SESSION["EVENT_NAME"] . '<br>' .
-                 'Event ID: ' . $_SESSION["EVENT_ID"]; ?>
-</h5>
+	<h5><?php echo 'Event Name: ' . $_SESSION["EVENT_NAME"] . '<br>' . 'Event ID: ' . $_SESSION["EVENT_ID"]; ?>
+	</h5>
    <h1 style="text-align:center">DJ Mode</h1>
     <row style="text-align:center">
       <div class="col-lg-6 col-sm-12">
